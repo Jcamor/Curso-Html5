@@ -8,17 +8,37 @@
     <style>
 #principal{
     width: 500px;
-    background-color: blue;
+ /*   background-color: blue;*/
     text-align: center;
     margin: 15px auto;
     padding: 15px;
     border: 3px solid red;
     border-radius: 20px 5px 15px 40px;
     box-shadow: gray 5px 5px 5px;
+    background: -moz-radial-gradient(left, rgb(10, 10, 209), rgb(241, 241, 247));
+    background: -webkit-radial-gradient(center,ellipse, rgb(10, 10, 209), rgb(241, 241, 247));
+    /*outline: 2px dashed red;
+    outline-offset: 15px;*/
+    /*-webkit-transform: scale(1, -1);
+    -moz-transform: scale(0.5);
+    -webkit-transform: rotate(5deg);
+    -webkit-transform: skew(30deg);*/
+    -webkit-transition: -webkit-transform  1s ease 0.5s;
+    -moz-transition: -moz-transform 1s ease 0.5s;
+}
+/*Speudoclases*/
+#principal:hover{
+    -webkit-transform: rotate(5deg);
+}
+
+@font-face{
+    font-family: 'MiPropiaFuente';
+    arc:url('DejaVuSans.ttf');
 }
 #titulo{
-    font: bold 36px Verdana, Geneva, sans-serif;
+    font: bold 36px 'MiPropiaFuente';
     text-shadow: green 3px 3px 5px;
+    color: rgba(0,0,0,0.7);
 }
 
     </style>
