@@ -1,0 +1,31 @@
+html, body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, pre, code, address, variable, form, fieldset, blockquote {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    font-weight: normal;
+   }
+   table { border-collapse: collapse; border-spacing: 0; }
+   td, th, caption { font-weight: normal; text-align: left; }
+   img, fieldset { border: 0; }
+   ol { padding-left: 1.4em; list-style: decimal; }
+   ul { padding-left: 1.4em; list-style:square; }
+   q:before, q:after { content:''; }
+
+   /* Fin del reset CSS */
+
+   body{
+       font-size: 62.5%;
+   }
+
+   h1{
+       font: normal 2.4em Verdana, Geneva, sans-serif;
+       background: -webkit-linear-gradient(top, rgb(4, 4, 207), rgb(161, 161, 235));
+       width: 80%;
+       border-radius: 10px;
+       margin: 15px auto;
+       text-align: center;
+       padding: 15px;
+       color: aliceblue;
+       box-shadow: #00F 5px 5px 10px;
+       text-shadow: white 2px 2px 3px;
+   }
