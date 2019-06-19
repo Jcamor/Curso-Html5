@@ -1,0 +1,52 @@
+<html>
+<head>
+
+    <title>Documento sin titulo</title>
+
+    <script>
+
+    var imagen;
+
+    function tipoflor(){
+        alert("Pensamientos");
+    }
+
+    function manejaFlor(){
+
+       // document.getElementsByTagName("img")[0].onclick=tipoflor;
+        
+        imagen=document.getElementsByTagName("img")[0];
+
+        imagen.addEventListener("mouseover", crecer, false);
+        imagen.addEventListener("mouseout", menguar,false);
+        imagen.addEventListener("click",tipoflor,false);
+    }   
+
+    function crecer(){
+
+        imagen.width=225;
+        imagen.height=225;
+    }
+
+    function menguar(){
+
+        imagen.width=200;
+        imagen.height=200;
+    }
+
+    window.onload=manejaFlor;
+    
+    
+    </script>
+</head>
+<body>
+    
+    <p><img src="imagenes/1.jpg"></p>
+
+</body>
+
+
+
+
+
+</html>
