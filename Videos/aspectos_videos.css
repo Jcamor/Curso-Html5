@@ -1,0 +1,10 @@
+#video{
+    width: 720px;
+    margin: 20px auto;
+    background-color: chocolate;
+    padding: 5px;
+    border: 2px solid rgb(226, 15, 15);
+    border-radius: 8px;
+    -moz-border-radiux:8px;
+    -webkit-border-radiux:8px;
+}
