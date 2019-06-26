@@ -22,10 +22,9 @@
             border: 2px black dashed;
         }
 
-        td{
+        td {
             padding: 15px;
         }
-
     </style>
 
     <script>
@@ -53,47 +52,52 @@
         }
     }*/
 
-    function comenzar(){
-        edad=document.getElementById("miedad");
-        edad.addEventListener("change",cambia_rango,false);
-        document.datos_usuario.addEventListener("invalid",validar,true);
-        document.getElementById("Enviar").addEventListener("click",enviar,false);
-        document.datos_usuario.addEventListener("input",validar_tiempo_real,false);
-    }
-
-    function cambia_rango(){
-        var salida=document.getElementById("rango");
-        var calculo=edad.value-30;
-
-        if (calculo<30){
-            calculo=0;
-            edad.value=30;
+        function comenzar() {
+            edad = document.getElementById("miedad");
+            edad.addEventListener("change", cambia_rango, false);
+            document.datos_usuario.addEventListener("invalid", validar, true);
+            document.getElementById("Enviar").addEventListener("click", enviar, false);
+            document.datos_usuario.addEventListener("input", validar_tiempo_real, false);
         }
-        salida.innerHTML=calculo+" a " +edad.value;
-    }
 
-    function validar(e){
-        var elemento=e.target;
-        elemento.style.background="red";
-    }
+        function cambia_rango() {
+            var salida = document.getElementById("rango");
+            var calculo = edad.value - 30;
 
-    function enviar(){
-        var correcto=document.datos_usuario.checkValidity();
-        if (correcto==true){
-            document.datos_usuario.submit();
+            if (calculo < 30) {
+                calculo = 0;
+                edad.value = 30;
+            }
+            salida.innerHTML = calculo + " a " + edad.value;
         }
-    }
 
-    function validar_tiempo_real(e){
-        var elemento=e.target;
-        if (elemento.validity.valid==true){
-            elemento.style.background="white";
-        }else{
-            elemento.style.background="red";
+        function validar(e) {
+            var elemento = e.target;
+            elemento.style.background = "red";
         }
-    }
-    
-    window.addEventListener("load",comenzar,false);
+
+        function enviar() {
+            var cuadro_usuario = document.getElementById("usuario");
+            var correcto = document.datos_usuario.checkValidity();
+
+            if (correcto == true) {
+                document.datos_usuario.submit();
+            } else if ((cuadro_usuario.validity.valueMissing == true) ||
+                (cuadro_usuario.validity.patternMismatch == true)) {
+                alert("El usuario no puede estar vacío y recuerda que tiene que tener 3 letras");
+            }
+        }
+
+        function validar_tiempo_real(e) {
+            var elemento = e.target;
+            if (elemento.validity.valid == true) {
+                elemento.style.background = "white";
+            } else {
+                elemento.style.background = "red";
+            }
+        }
+
+        window.addEventListener("load", comenzar, false);
     </script>
 </head>
 
