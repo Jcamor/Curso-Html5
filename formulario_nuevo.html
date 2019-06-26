@@ -29,11 +29,12 @@
     </style>
 
     <script>
+        /*
     function comenzar(){
-        var nombre=document.getElementById("nombre");
+        var Usuario=document.getElementById("Usuario");
         var apellido=document.getElementById("apellido");
 
-        nombre.addEventListener("input",validar,false);
+        Usuario.addEventListener("input",validar,false);
         apellido.addEventListener("input",validar,false);
 
         validar();
@@ -41,14 +42,54 @@
 
     function validar(){
         
-        if(nombre.value=="" && apellido.value==""){
-            nombre.setCustomValidity("Introduce nombre o apellido");
-            nombre.style.background="red";
+        if(Usuario.value=="" && apellido.value==""){
+            Usuario.setCustomValidity("Introduce Usuario o apellido");
+            Usuario.style.background="red";
             apellido.style.background="red";
         }else{
-            nombre.setCustomValidity("");
-            nombre.style.background="white";
+            Usuario.setCustomValidity("");
+            Usuario.style.background="white";
             apellido.style.background="white";
+        }
+    }*/
+
+    function comenzar(){
+        edad=document.getElementById("miedad");
+        edad.addEventListener("change",cambia_rango,false);
+        document.datos_usuario.addEventListener("invalid",validar,true);
+        document.getElementById("Enviar").addEventListener("click",enviar,false);
+        document.datos_usuario.addEventListener("input",validar_tiempo_real,false);
+    }
+
+    function cambia_rango(){
+        var salida=document.getElementById("rango");
+        var calculo=edad.value-30;
+
+        if (calculo<30){
+            calculo=0;
+            edad.value=30;
+        }
+        salida.innerHTML=calculo+" a " +edad.value;
+    }
+
+    function validar(e){
+        var elemento=e.target;
+        elemento.style.background="red";
+    }
+
+    function enviar(){
+        var correcto=document.datos_usuario.checkValidity();
+        if (correcto==true){
+            document.datos_usuario.submit();
+        }
+    }
+
+    function validar_tiempo_real(e){
+        var elemento=e.target;
+        if (elemento.validity.valid==true){
+            elemento.style.background="white";
+        }else{
+            elemento.style.background="red";
         }
     }
     
@@ -61,7 +102,7 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
     <section>
-        <form name="registro" method="get">
+        <form name="datos_usuario" method="get">
 
             <!--    <datalist id="informacion">
                 <option value="958256369" label="   Teléfono 1">
@@ -76,18 +117,23 @@
             <table>
                 <tr>
                     <td>
-                        Nombre:</td>
-                    <td><input type="text" name="nombre" id="nombre"></td>
+                        Usuario:</td>
+                    <td><input pattern="[A-Za-z]{3}" name="usuario" id="usuario" maxlength="10" required></td>
                 </tr>
                 <tr>
                     <td>
-                        Apellido:</td>
-                    <td><input type="text" name="apellido" id="apellido"></td>
+                        Email:</td>
+                    <td><input type="email" name="miemail" id="email" required></td>
                 </tr>
                 <tr>
                     <td>
                         Edad:</td>
-                    <td><input type="number" name="edad" id="edad" min="1" max="100"></td>
+                    <td><input type="range" name="miedad" id="miedad" min="0" max="120" value="30" step="30"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <output id="rango">0 a 30</output>
+                    </td>
                 </tr>
                 <tr>
                     <td>
