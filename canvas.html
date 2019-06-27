@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas</title>
+    <style>
+        #lienzo {
+            background-color: aqua;
+        }
+
+        section {
+            width: 500px;
+            position: relative;
+            margin: auto;
+        }
+    </style>
+
+    <script>
+
+        function comenzar() {
+            var elemento = document.getElementById("lienzo"); // asignamos el objeto
+            lienzo = elemento.getContext("2d"); // para 2 dimensiones
+            lienzo.fillStyle="red"; // color del relleno
+            lienzo.strokeStyle="blue"; // dibuja contorno
+            lienzo.globalAlpha=0.3; //hacerlo trasparente
+            //lienzo.fillRect(110,80, 200, 200);
+            lienzo.strokeRect(100,100,120,120); // dibujar rectangulo vacio
+            lienzo.fillRect(110,110, 100, 100); // dibujar rectangulo relleno
+            lienzo.clearRect(120,120,80,80);    // borrar rectangulo
+            
+        }
+
+
+        window.addEventListener("load", comenzar, false); // para nada más empezar vaya a la función comenzar
+    </script>
+</head>
+
+<body>
+    <section id="dibujo">
+        <canvas id="lienzo" width="500" height="300">
+            Su navegador no soporta el elemnto html5 canvas. <!--Solo lo pone si no soporta la API Canvas-->
+
+        </canvas>
+
+
+    </section>
+</body>
+
+</html>
