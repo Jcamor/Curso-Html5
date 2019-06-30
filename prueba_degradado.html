@@ -21,9 +21,10 @@
         var elemento=document.getElementById("lienzo");
         lienzo.elemento.getContext("2d");
 
-        var degradado=lienzo.createLinearGradient(0,150,500,150);
-        degradado.addColorStop(0,"red");
-        degradado.addColorStop(1,"green");
+        //var degradado=lienzo.createLinearGradient(0,0,500,300);// para crear el degradado
+        var degradadoCircular=lienzo.createRadialGradient(250,150)
+        degradado.addColorStop(0,"red"); //el 0 hasta donde llega el rojo
+        degradado.addColorStop(0.3,"green"); //
         lienzo.fillStyle=degradado;
 
         lienzo.fillRect(0,0,500,300); // Hay de dibujar una figura para q salga el degradado
