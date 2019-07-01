@@ -13,7 +13,11 @@
         }
 
         #lienzo{
-            background-color: aliceblue;
+            background-color: rgb(14, 134, 240);
+            background: linear-gradient(red, blue); 
+            background: linear-gradient(to right, red , blue); 
+            background: linear-gradient(to bottom right, red , blue);
+            background: radial-gradient(red, green, blue);
         }
     </style>
     <script>
@@ -21,8 +25,8 @@
         var elemento=document.getElementById("lienzo");
         lienzo.elemento.getContext("2d");
 
-        //var degradado=lienzo.createLinearGradient(0,0,500,300);// para crear el degradado
-        var degradadoCircular=lienzo.createRadialGradient(250,150)
+        var degradado=lienzo.createLinearGradient(0,150,500,300);// para crear el degradado
+        //var degradadoCircular=lienzo.createRadialGradient(250,150) // el degradado en circulo
         degradado.addColorStop(0,"red"); //el 0 hasta donde llega el rojo
         degradado.addColorStop(0.3,"green"); //
         lienzo.fillStyle=degradado;
