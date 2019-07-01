@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style> 
+    #lienzo{
+        background-color: aqua;
+        border: 1px black solid;
+    }
+    </style>
+
+    <script>
+        function comenzar(){
+            var elemento=document.getElementById("lienzo");
+            lienzo=elemento.getContext("2d");
+
+            lienzo.beginPath(); // inicio de la figura
+            lienzo.moveTo(100,200); //mueve el lapiz a esas coordenadas inicio
+            lienzo.lineTo(200,200); // linea hasta las coordenadas marcadas
+            lienzo.lineTo(200,150);
+            lienzo.lineTo(100,150);
+            lienzo.lineTo(100,200);
+
+            lienzo.clip(); // es una máscara
+            //lienzo.closePath(); //cerramos la figura
+
+            lienzo.beginPath();
+            for(i=0; i<250;i+=10){ // para dibujar las lineas
+                lienzo.moveTo(0,i);
+                lienzo.lineTo(500,i);
+            }
+
+
+            lienzo.stroke(); // dibuja la figura vacia
+            //lienzo.fill(); // dibuja figura rellena
+        }
+
+
+        window.addEventListener("load", comenzar,false);
+    </script>
+</head>
+<body>
+    <section>
+        <canvas id="lienzo" width="500" height="300">
+            Este elemento no soportado por su navegador
+        </canvas>
+
+
+    </section>
+    
+</body>
+</html>
