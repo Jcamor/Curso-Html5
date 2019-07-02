@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        #lienzo {
+            background-color: aqua;
+            border: 1px black solid;
+        }
+    </style>
+    <script>
+        function comenzar() {
+            var elemento = document.getElementById("lienzo");
+            var lienzo = elemento.getContext("2d");
+
+            lienzo.beginPath();
+            // lienzo.arc(100,100,50,0,Math.PI,false); // false nos devuelve el arco de 50
+            lienzo.moveTo(250, 50); //punto inicial
+            //lienzo.quadraticCurveTo(300,50,50,290); // con punto de control para el arco
+            lienzo.bezierCurveTo(200, 125, 300, 125, 250, 200); // con 2 puntos de control
+
+            lienzo.stroke();
+        }
+
+
+
+        window.addEventListener("load", comenzar, false);
+    </script>
+</head>
+
+<body>
+    <section>
+        <canvas width="500" height="300" id="lienzo">
+            Su navegador no admite el elemento canvas
+        </canvas>
+
+
+    </section>
+
+</body>
+
+</html>
