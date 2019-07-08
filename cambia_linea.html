@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        #lienzo {
+            background-color: aqua;
+            border: 1px black solid;
+        }
+
+        section{
+            width: 800px;
+            position: relative;
+            margin: auto;
+        }
+    </style>
+
+    <script>
+        function comenzar() {
+            var elemento = document.getElementById("lienzo");
+            var lienzo = elemento.getContext("2d");
+            
+            lienzo.arc(200,150,100,0,Math.PI*2,false); // false nos devuelve el arco de 50
+            lienzo.moveTo(250, 50); //punto inicial
+            lienzo.stroke();
+
+            lienzo.lineWidth=10;
+            lienzo.lineCap="round";
+            lienzo.beginPath();
+            lienzo.arc(200,170,60,0,Math.PI,false);
+            lienzo.stroke();
+
+            lienzo.lineWidth=5;
+            lienzo.lineJoin="miter"; //tipo de linea
+            lienzo.miterLimit=3; // tipo de terminación
+            lienzo.beginPath();
+            lienzo.moveTo(195,135);
+            lienzo.lineTo(215,155);
+            lienzo.lineTo(195,155);
+            lienzo.stroke();
+            
+            lienzo.lineWidth=1; // grosor linea
+            lienzo.beginPath();
+            lienzo.arc(175,110,7,0,Math.PI*2,false); // ojo por dentro
+            lienzo.arc(225,110,7,0,Math.PI*2,false); // ojo por dentro
+            lienzo.fill(); // dibuja con relleno
+            
+            lienzo.beginPath();
+            lienzo.arc(168,106,15,0,Math.PI*2,false);//ojo izquierdo
+            lienzo.stroke();
+            lienzo.beginPath();// iniciamos trazado para q no salga linea de unión
+            lienzo.arc(232,106,15,0,Math.PI*2,false);// ojo derecho
+            lienzo.stroke();
+        }
+
+        window.addEventListener("load", comenzar, false);
+    </script>
+</head>
+
+<body>
+    <section>
+        <canvas width="800" height="600" id="lienzo">
+            Su navegador no admite el elemento canvas
+        </canvas>
+
+
+    </section>
+
+</body>
+
+</html>
