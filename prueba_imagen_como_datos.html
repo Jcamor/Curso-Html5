@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        #lienzo {
+            background-color: white;
+            border: 1px red solid;
+        }
+
+        section{
+            width: 800px;
+            position: relative;
+            margin: auto;
+        }
+    </style>
+
+    <script>
+        function comenzar() {
+            var elemento=document.getElementById("lienzo");
+            lienzo=elemento.getContext("2d");
+            
+            var imagen=new Image();
+            imagen.src="imagenes/1.jpg";
+            imagen.addEventListener("load",manipularimagen,false); 
+            // llamamos a la función cuando leemos la imagen
+            
+        }
+
+        function manipularimagen(e) {
+            imagen=e.target;
+            lienzo.drawImage(imagen,0,0);
+
+            var info_imagen=lienzo.getImageData(0,0,145,145); 
+            // la cojemos recortada hasta el pixel 145
+            var posicion; //grabamos la posición para recorrer el array
+            for(x=0;x<=145;x++){
+                for(y=0;y<=145;y++){
+                    posicion=(info_imagen.width*4*y)+(x*4); 
+                    // formula para sacar la posicion del rojo
+                    info_imagen.data[posicion]=255-info_imagen.data[posicion]; //rojo
+                                            // así invertimos la imagen
+                    info_imagen.data[posicion+1]=255-info_imagen.data[posicion+1];//verde
+                    info_imagen.data[posicion+2]=255-info_imagen.data[posicion+2];//azul
+                }
+            }
+            lienzo.putImageData(info_imagen,0,0); // la ponemos en el lienzo
+            
+        }
+
+        window.addEventListener("load", comenzar, false);
+    </script>
+</head>
+
+<body>
+    <section>
+        <canvas width="1200" height="800" id="lienzo">
+            Su navegador no admite el elemento canvas
+        </canvas>
+
+
+    </section>
+
+</body>
+
+</html>
