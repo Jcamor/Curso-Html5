@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        #lienzo {
+            background-color: white;
+            border: 1px red solid;
+        }
+
+        section{
+            width: 800px;
+            position: relative;
+            margin: auto;
+        }
+    </style>
+
+    <script>
+        function comenzar() {
+            var elemento=document.getElementById("lienzo");
+            lienzo=elemento.getContext("2d");
+
+            /*lienzo.shadowColor="rgba(0,0,0,0.5)"; // sombreado
+            lienzo.shadowOffsetX=4; //para el eje x
+            lienzo.shadowOffsetY=4;  // para el eje y
+            lienzo.shadowBlur=5; // el difuminado*/
+
+            lienzo.font="bold 20px verdana"; // negrita 
+            //lienzo.textAlign="start";
+
+            //lienzo.textBaseline="top"; // por encima de la linea o por debajo
+
+            lienzo.fillText("Hola alumnos", 50,20);
+            lienzo.translate(100,100); // cambia el eje de coordenadas
+            lienzo.scale(3, 3); // amplia en 3 el alto y el ancho
+            lienzo.rotate(Math.PI);
+            
+            
+            lienzo.fillText("Hola alumnos", -200,-150);
+            
+            //var dimensiones=lienzo.measureText("Hola alumnos"); // almacena el ancho del texto
+            //lienzo.strokeRect(100,100,dimensiones.width+10,58); // crear un rectángulo
+
+
+            //lienzo.moveTo(100, 100);
+            //lienzo.lineTo(200,100);
+            //lienzo.stroke();
+            
+            
+        }
+
+        window.addEventListener("load", comenzar, false);
+    </script>
+</head>
+
+<body>
+    <section>
+        <canvas width="1200" height="800" id="lienzo">
+            Su navegador no admite el elemento canvas
+        </canvas>
+
+
+    </section>
+
+</body>
+
+</html>
