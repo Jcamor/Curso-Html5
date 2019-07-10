@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        #lienzo {
+            background-color: white;
+            border: 1px red solid;
+        }
+
+        section{
+            width: 800px;
+            position: relative;
+            margin: auto;
+        }
+    </style>
+
+    <script>
+        function comenzar() {
+            var elemento=document.getElementById("lienzo");
+            lienzo=elemento.getContext("2d");
+
+            lienzo.font="bold 20px verdana";
+            lienzo.save(); // graba la situación actual
+            
+            lienzo.fillText("Hola Alumnos", 50, 50);
+            
+            lienzo.translate(60,70);
+            lienzo.rotate(Math.PI / 180 * 55);
+            lienzo.fillText("hola alumnos",0,0);
+            
+            lienzo.restore(); // restaura los valores q se grabaron
+            //lienzo.rotate(-Math.PI/180*55);
+            lienzo.translate(300,400);
+            lienzo.scale(2,2);
+            lienzo.fillText("hola alumnos",0,0);
+            
+            /*
+            lienzo.transform(3, 0, 0, 1, 0, 0); // transforma el texto q le sigue
+            lienzo.font="bold 20px verdana";
+            lienzo.fillText("Hola Alumnos", 50, 50);
+
+            lienzo.transform(1, 0, 0, 10, 0, 0); // el transform es acumulativo
+            lienzo.font="bold 20px verdana";
+            lienzo.fillText("Hola Alumnos", 50, 50);
+
+            lienzo.setTransform(1,0,0,10,0,0);     // resetea los transform
+            lienzo.font="bold 20px verdana";
+            lienzo.fillText("Hola alumnos", 50,50);*/
+            
+        }
+
+        window.addEventListener("load", comenzar, false);
+    </script>
+</head>
+
+<body>
+    <section>
+        <canvas width="1200" height="800" id="lienzo">
+            Su navegador no admite el elemento canvas
+        </canvas>
+
+
+    </section>
+
+</body>
+
+</html>
