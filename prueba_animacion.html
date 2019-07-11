@@ -23,34 +23,40 @@
     <script>
         var y = 300;
         var estado = "bajando";
+        var techo = 50;
+        var horizontal=0;
 
         function comenzar() {
             var elemento = document.getElementById("lienzo");
             lienzo = elemento.getContext("2d");
 
-            setInterval(animacion, 50);
+            setInterval(animacion, 5); // intervalo de llamar a la funcion en milisegundos
 
         }
         function animacion() {
             if (y < 850 && estado == "bajando") {
                 lienzo.clearRect(0, 0, 1200, 900); // limpiamos el canvas
                 lienzo.beginPath();
-                lienzo.arc(500, y, 40, 0, Math.PI * 2, false);
+                lienzo.arc(10+horizontal, y, 40, 0, Math.PI * 2, false);
                 lienzo.fill();
                 y += 5;
+                horizontal+=0.2;
             }
             if (y == 850) {
                 estado = "subiendo";
+                techo += 50;
             }
-            if (y >= 300 && estado == "subiendo") {
+            if (y >= techo && estado == "subiendo") {
                 lienzo.clearRect(0, 0, 1200, 900); // limpiamos el canvas
                 lienzo.beginPath();
-                lienzo.arc(500, y, 40, 0, Math.PI * 2, false);
+                lienzo.arc(10+horizontal, y, 40, 0, Math.PI * 2, false);
                 lienzo.fill();
                 y -= 5;
+                horizontal+=0.2;
             }
-            if (y == 300) {
+            if (y == techo) {
                 estado = "bajando";
+
             }
         }
 
