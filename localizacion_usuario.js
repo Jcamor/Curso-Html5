@@ -16,7 +16,7 @@ function mostar_posicion(posicion) {
 
     miubicacion += "Latitud: " + posicion.coords.latitude + "<br>";
     miubicacion += "Longitud: " + posicion.coords.longitude + "<br>";
-    miubicacion += "Exactitud: " + posicion.coords.accuracy + "<br>";*
+    miubicacion += "Exactitud: " + posicion.coords.accuracy + "<br>";
 
       ubicacion.innerHTML = miubicacion;*/
 
