@@ -18,7 +18,7 @@ function mostar_posicion(posicion) {
     miubicacion += "Longitud: " + posicion.coords.longitude + "<br>";
     miubicacion += "Exactitud: " + posicion.coords.accuracy + "<br>";*
 
-    ubicacion.innerHTML = miubicacion;*/
+      ubicacion.innerHTML = miubicacion;*/
 
     var mimapa="http://maps.google.com/maps/api/staticmap?center=" + posicion.coords.latitude + "," + posicion.coords.longitude + "," +
     "&zoom=12&size=400x400&sensor=false&markers=" + posicion.coords.latitude + "," + posicion.coords.longitude;
