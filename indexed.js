@@ -26,12 +26,30 @@ function agregarobjeto() {
     var almacen = transaccion.objectStore("gente");
     var agregar = almacen.add({ clave: clave, titulo: titulo, fecha: fecha });
 
+    agregar.addEventListener("success", mostar, false);
+
     document.getElementById("clave").value = "";
     document.getElementById("texto").value = "";
     document.getElementById("fecha").value = "";
-
 }
 
+function mostar() {
+    zonadatos.innerHTML = "";
 
+    var transaccion = bd.transaction(["gente"], "readonly");
+    var almacen = transaccion.objectStore("gente");
+    var cursor = almacen.openCursor();
+
+    cursor.addEventListener("success", mostrarDatos, false);
+}
+
+function mostrarDatos(e) { //el e es el evento del cursor
+    var cursor = e.target.result;
+
+    if (cursor) {
+        zonadatos.innerHTML += "<div>" + cursor.value.clave + " - " + cursor.value.titulo + " - " + cursor.value.fecha + "</div>";
+        cursor.continue();
+    }
+}
 
 window.addEventListener("load", iniciar, false);
